@@ -9,24 +9,11 @@ Port and bind address should both be configurable.
 
 ## Purpose
 
-We have several subdomains that consist of single static pages:
-* [bots.charlesreid1.com](https://git.charlesreid1.com/charlesreid1/bots.charlesreid1.com)
-* [hooks.charlesreid1.com](https://git.charlesreid1.com/charlesreid1/hooks.charlesreid1.com)
-* [pages.charlesreid1.com](https://git.charlesreid1.com/charlesreid1/pages.charlesreid1.com)
-* [api.charlesreid1.com](https://git.charlesreid1.com/charlesreid1/api.charlesreid1.com)
+The purpose of Python Helium is to host
+multiple one-page static sites for a 
+series of subdomains of charlesreid1.com.
 
-The individual bots also need page upgrades.
-
-To accomplish this, we implement a one-page pelican theme,
-[scurvy-knave-theme](https://git.charlesreid1.com/charlesreid1/scurvy-knave-theme).
-This page is a dead-simple single page template.
-
-These repos have a source branch (`master`) 
-and a live html content branch (`gh-pages`).
-
-The `gh-pages` branch is the only one relevant
-to `d-python-helium`. This branch contains
-static content to be hosted by `d-python-helium`.
+See [Subdomains.md](/Subdomains.md)
 
 ## Helium Application
 

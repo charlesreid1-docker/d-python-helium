@@ -1,5 +1,30 @@
 # Coordinating Subdomains 
 
+## The Subdomains
+
+We have several subdomains that consist of single static pages:
+* [bots.charlesreid1.com](https://git.charlesreid1.com/charlesreid1/bots.charlesreid1.com)
+* [hooks.charlesreid1.com](https://git.charlesreid1.com/charlesreid1/hooks.charlesreid1.com)
+* [pages.charlesreid1.com](https://git.charlesreid1.com/charlesreid1/pages.charlesreid1.com)
+* [api.charlesreid1.com](https://git.charlesreid1.com/charlesreid1/api.charlesreid1.com)
+
+The individual bots also need page upgrades.
+
+To accomplish this, we implement a one-page pelican theme,
+[scurvy-knave-theme](https://git.charlesreid1.com/charlesreid1/scurvy-knave-theme).
+This page is a dead-simple single page template.
+
+## Subdomains on Git
+
+These repos have a source branch (`master`) 
+and a live html content branch (`gh-pages`).
+
+The `gh-pages` branch is the only one relevant
+to `d-python-helium`. This branch contains
+static content to be hosted by `d-python-helium`.
+
+## Subdomains in Nginx
+
 The end goal is to have a single Python service
 that listens on multiple ports, serving a different
 static site on each port, with different static sites
@@ -32,7 +57,7 @@ run by their own `d-python-helium` container.
 
 So how do we coordinate all of these sites?
 
-## Everything On One Machine
+### Nginx + Python Helium: Everything On One Machine
 
 Let's start by explaining how to do it if everything is on 
 one machine. 
@@ -57,7 +82,7 @@ using the docker virtual network.
 In this way, nginx reverse proxies requests for the subdomain
 to the Python Helium service.
 
-## Running Nginx and Python Helium on Separate Machines
+### Nginx + Python Helium: Separate Machines
 
 So you wanna run nginx and Python Helium on separate machines.
 
@@ -78,7 +103,7 @@ Python Helium on `10.0.0.2`, the nginx rule would be
 to reverse-proxy all requests for bots.charlesreid1.com
 `to 10.0.0.2:7777`.
 
-## Setting Up the VPN
+## Nginx + Python Helium: Setting Up the VPN
 
 The "easiest" way to get a mesh VPN network going 
 is to use tinc. It takes a while, and requires you

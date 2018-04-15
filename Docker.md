@@ -3,8 +3,22 @@
 The core idea behind python helium is to be as lightweight as possible,
 so this is based on the lightweight `jfloff/alpine-python` image.
 
+## Docker and Docker Compose
+
 The Dockerfile extends `jfloff/alpine-python:recent-slim` 
 and installs twisted into the container on first run.
+
+This can be used standalone by building using `docker build`.
+
+However, the preferred way to use this image is to use the 
+docker-compose file:
+
+```
+docker-compose build
+docker-compose up -d
+docker-compose down
+```
+
 
 ## Network
 
