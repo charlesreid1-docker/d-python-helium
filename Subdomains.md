@@ -67,7 +67,7 @@ as either a host service, or as a container, and it
 reads a configuration file that tells it how to route traffic.
 
 The nginx server will receive a request for a subdomain
-(bots.charlesreid1.com), and from the rules in the 
+(pages.charlesreid1.com), and from the rules in the 
 configuration file (which we will cover) it sees it should
 forward the request to Python Helium.
 
@@ -100,8 +100,8 @@ of the server running Python Helium.
 
 For example, if nginx were running on `10.0.0.1` and 
 Python Helium on `10.0.0.2`, the nginx rule would be 
-to reverse-proxy all requests for bots.charlesreid1.com
-`to 10.0.0.2:7777`.
+to reverse-proxy all requests for pages.charlesreid1.com
+to `10.0.0.2:7777`.
 
 ## Nginx + Python Helium: Setting Up the VPN
 

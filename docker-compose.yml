@@ -4,7 +4,7 @@ services:
     build: .
     volumes:
       - "./helium.py:/app/helium.py"
+      - "./site1:/www/site1/htdocs"
     ports:
       - "8081:8081"
-
 

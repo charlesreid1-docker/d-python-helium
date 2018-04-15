@@ -17,5 +17,9 @@ The gist of the program is this:
     * Run the `twisted.Site.listen()` method to add the listener to the twisted application
 * Run the twisted application
 
+It can be run like any python program,
 
+```
+python helium.py
+```
 
