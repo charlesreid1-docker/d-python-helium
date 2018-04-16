@@ -1,6 +1,6 @@
 version: "3.1"
 services:
-  stormy_files:
+  stormy_helium:
     build: .
     volumes:
       - "./helium.py:/app/helium.py"
