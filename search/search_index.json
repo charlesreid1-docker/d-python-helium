@@ -1,0 +1,124 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "d-python-helium\n\n\nLike \nd-python-files\n, \nbut for serving static sites instead of files.\n\n\nStatic files only.\n\n\nPort and bind address should both be configurable.\n\n\nPurpose\n\n\nThe purpose of Python Helium is to host\nmultiple one-page static sites for a \nseries of subdomains of charlesreid1.com.\n\n\nSee \nSubdomains.md\n\n\nHelium Application\n\n\nThe helium appcliation is a twisted network application \nthat serves different folders of static content on different\nports.\n\n\nSee \nHelium.md\n.\n\n\nDockerfile and Base Image\n\n\nThe core idea behind python helium is to be as lightweight as possible,\nso this is based on the lightweight \njfloff/alpine-python\n image.\n\n\nSee \nDocker.md\n\n\nStatic Content Layout\n\n\nPython Helium expects static content to live in \n/www\n \ninside the container. The document below\ndetails how to bind-mount each subdomain's \nstatic content/one-pager into the container\nfor the \nhelium.py\n application.\n\n\nSee \nLayout.md\n\n\nCoordinating Subdomains\n\n\nThe end goal is to have a single Python service\nthat listens on multiple ports, serving a different\nstatic site on each port, with different static sites\ncorresponding to different subdomains.\n\n\nTo do this, Python Helium works in coordination with \nthe nginx web server. \n\n\nSee \nSubdomains.md",
+            "title": "Home"
+        },
+        {
+            "location": "/#d-python-helium",
+            "text": "Like  d-python-files , \nbut for serving static sites instead of files.  Static files only.  Port and bind address should both be configurable.",
+            "title": "d-python-helium"
+        },
+        {
+            "location": "/#purpose",
+            "text": "The purpose of Python Helium is to host\nmultiple one-page static sites for a \nseries of subdomains of charlesreid1.com.  See  Subdomains.md",
+            "title": "Purpose"
+        },
+        {
+            "location": "/#helium-application",
+            "text": "The helium appcliation is a twisted network application \nthat serves different folders of static content on different\nports.  See  Helium.md .",
+            "title": "Helium Application"
+        },
+        {
+            "location": "/#dockerfile-and-base-image",
+            "text": "The core idea behind python helium is to be as lightweight as possible,\nso this is based on the lightweight  jfloff/alpine-python  image.  See  Docker.md",
+            "title": "Dockerfile and Base Image"
+        },
+        {
+            "location": "/#static-content-layout",
+            "text": "Python Helium expects static content to live in  /www  \ninside the container. The document below\ndetails how to bind-mount each subdomain's \nstatic content/one-pager into the container\nfor the  helium.py  application.  See  Layout.md",
+            "title": "Static Content Layout"
+        },
+        {
+            "location": "/#coordinating-subdomains",
+            "text": "The end goal is to have a single Python service\nthat listens on multiple ports, serving a different\nstatic site on each port, with different static sites\ncorresponding to different subdomains.  To do this, Python Helium works in coordination with \nthe nginx web server.   See  Subdomains.md",
+            "title": "Coordinating Subdomains"
+        },
+        {
+            "location": "/Docker/",
+            "text": "Dockerfile and Base Image\n\n\nThe core idea behind python helium is to be as lightweight as possible,\nso this is based on the lightweight \njfloff/alpine-python\n image.\n\n\nDocker and Docker Compose\n\n\nThe Dockerfile extends \njfloff/alpine-python:recent-slim\n \nand installs twisted into the container on first run.\n\n\nThis can be used standalone by building using \ndocker build\n.\n\n\nHowever, the preferred way to use this image is to use the \ndocker-compose file:\n\n\ndocker-compose build\ndocker-compose up -d\ndocker-compose down\n\n\n\n\nNetwork\n\n\nThis requires the container to listen for requests \non multiple ports. The container should be bound \nto the correct address.\n\n\nIf Python Helium is listening for requests from an nginx \ncontainer in the same pod, you can listen for any incoming\nrequest (no need to bind to a particular address).\nIn this case the container will not have any external\ninterface.\n\n\nIf Python Helium is listening for requests over a VPN, \nthe service should be bound to the VPN IP address of\nthe machine. This will ensure that the server only\nresponds to (encrypted) requests from machines on the VPN.\n\n\nVolumes and Bind Mounting\n\n\nThe Dockerfile expects the application to be at:\n\n\n/app/helium.py\n\n\n\n\nso bind mount the \nhelium.py\n application to \n/app/helium.py\n\nwhen you run this container.",
+            "title": "Docker"
+        },
+        {
+            "location": "/Docker/#dockerfile-and-base-image",
+            "text": "The core idea behind python helium is to be as lightweight as possible,\nso this is based on the lightweight  jfloff/alpine-python  image.",
+            "title": "Dockerfile and Base Image"
+        },
+        {
+            "location": "/Docker/#docker-and-docker-compose",
+            "text": "The Dockerfile extends  jfloff/alpine-python:recent-slim  \nand installs twisted into the container on first run.  This can be used standalone by building using  docker build .  However, the preferred way to use this image is to use the \ndocker-compose file:  docker-compose build\ndocker-compose up -d\ndocker-compose down",
+            "title": "Docker and Docker Compose"
+        },
+        {
+            "location": "/Docker/#network",
+            "text": "This requires the container to listen for requests \non multiple ports. The container should be bound \nto the correct address.  If Python Helium is listening for requests from an nginx \ncontainer in the same pod, you can listen for any incoming\nrequest (no need to bind to a particular address).\nIn this case the container will not have any external\ninterface.  If Python Helium is listening for requests over a VPN, \nthe service should be bound to the VPN IP address of\nthe machine. This will ensure that the server only\nresponds to (encrypted) requests from machines on the VPN.",
+            "title": "Network"
+        },
+        {
+            "location": "/Docker/#volumes-and-bind-mounting",
+            "text": "The Dockerfile expects the application to be at:  /app/helium.py  so bind mount the  helium.py  application to  /app/helium.py \nwhen you run this container.",
+            "title": "Volumes and Bind Mounting"
+        },
+        {
+            "location": "/Helium/",
+            "text": "Helium Application\n\n\nThe helium appcliation is a twisted network application \nthat serves different folders of static content on different\nports.\n\n\nA straightforward example of what we are doing is \navailable in the \npython-multiport\n\nrepository at \nstatic_content.py\n.\n\n\nThe gist of the program is this:\n\n\n\n\nFor each static site:\n\n\nCreate a \ntwisted.File\n resource that points to the static directory\n\n\nCreate a \ntwisted.Site\n factory that creates an http listener on a port\n\n\nGlue the http listener to a unique TCP port on the host machine\n\n\nRun the \ntwisted.Site.listen()\n method to add the listener to the twisted application\n\n\n\n\n\n\nRun the twisted application\n\n\n\n\nIt can be run like any python program,\n\n\npython helium.py",
+            "title": "Helium"
+        },
+        {
+            "location": "/Helium/#helium-application",
+            "text": "The helium appcliation is a twisted network application \nthat serves different folders of static content on different\nports.  A straightforward example of what we are doing is \navailable in the  python-multiport \nrepository at  static_content.py .  The gist of the program is this:   For each static site:  Create a  twisted.File  resource that points to the static directory  Create a  twisted.Site  factory that creates an http listener on a port  Glue the http listener to a unique TCP port on the host machine  Run the  twisted.Site.listen()  method to add the listener to the twisted application    Run the twisted application   It can be run like any python program,  python helium.py",
+            "title": "Helium Application"
+        },
+        {
+            "location": "/Layout/",
+            "text": "Static Content Layout: Inside Container\n\n\nInsie of the container, Python Helium expects\nstatic content to be present in \n/www\n.\n\n\nEach site should follow the schema of:\n\n\n/www/<subdomain-url>/htdocs\n\n\n\n\nwhere \nhtdocs\n is a cloned copy of the \ngh-pages\n \nbranch of the repository for that subdomain's \none pager.\n\n\nFor example, the bots subdomain bots.charlesreid1.com\nhas the layout:\n\n\n/www\n    bots.charlesreid1.com/\n        htdocs/\n            index.html\n            css/\n            js/\n            ...\n    pages.charlesreid1.com\n    hooks.charlesreid1.com\n    api.charlesreid1.com\n\n\n\n\nand htdocs is the repo at\n\nhttps://git.charlesreid1.com/charlesreid1/bots.charlesreid1.com\n.",
+            "title": "Layout"
+        },
+        {
+            "location": "/Layout/#static-content-layout-inside-container",
+            "text": "Insie of the container, Python Helium expects\nstatic content to be present in  /www .  Each site should follow the schema of:  /www/<subdomain-url>/htdocs  where  htdocs  is a cloned copy of the  gh-pages  \nbranch of the repository for that subdomain's \none pager.  For example, the bots subdomain bots.charlesreid1.com\nhas the layout:  /www\n    bots.charlesreid1.com/\n        htdocs/\n            index.html\n            css/\n            js/\n            ...\n    pages.charlesreid1.com\n    hooks.charlesreid1.com\n    api.charlesreid1.com  and htdocs is the repo at https://git.charlesreid1.com/charlesreid1/bots.charlesreid1.com .",
+            "title": "Static Content Layout: Inside Container"
+        },
+        {
+            "location": "/Subdomains/",
+            "text": "Coordinating Subdomains\n\n\nThe Subdomains\n\n\nWe have several subdomains that consist of single static pages:\n\n \nbots.charlesreid1.com\n\n\n \nhooks.charlesreid1.com\n\n\n \npages.charlesreid1.com\n\n\n \napi.charlesreid1.com\n\n\nThe individual bots also need page upgrades.\n\n\nTo accomplish this, we implement a one-page pelican theme,\n\nscurvy-knave-theme\n.\nThis page is a dead-simple single page template.\n\n\nSubdomains on Git\n\n\nThese repos have a source branch (\nmaster\n) \nand a live html content branch (\ngh-pages\n).\n\n\nThe \ngh-pages\n branch is the only one relevant\nto \nd-python-helium\n. This branch contains\nstatic content to be hosted by \nd-python-helium\n.\n\n\nSubdomains in Nginx\n\n\nThe end goal is to have a single Python service\nthat listens on multiple ports, serving a different\nstatic site on each port, with different static sites\ncorresponding to different subdomains.\n\n\n\n                                                      +----------------------------------------+\n                                                      |         python helium                  |\n                         HTTPS     +----------+       |                                        |\n                                   |  nginx   |       | +------------------------------------+ |\npages.charlesreid1.com-----------> |          +-------> | port 7777   pages.charlesreid1.com | |\n                                   |          |       | |             static content         | |\n                                   |          |       | +------------------------------------+ |\nhooks.charlesreid1.com-----------> |          +-------> | port 7778   hooks.charlesreid1.com | |\n                                   |          |       | |             static content         | |\n                                   |          |       | +------------------------------------+ |\nbots.charlesreid1.com------------> |          +-------> | port 7779   bots.charlesreid1.com  | |\n                                   |          |       | |             static content         | |\n                                   +----------+       | +------------------------------------+ |\n                                                      |                                        |\n                                                      +----------------------------------------+\n\n\n\n\n\nThere are multiple subdomains (bots, hooks, pages),\neach with their own cloned copy of the live site, \nrun by their own \nd-python-helium\n container.\n\n\nSo how do we coordinate all of these sites?\n\n\nNginx + Python Helium: Everything On One Machine\n\n\nLet's start by explaining how to do it if everything is on \none machine. \n\n\nWe have an nginx web server running on the host machine \nas either a host service, or as a container, and it \nreads a configuration file that tells it how to route traffic.\n\n\nThe nginx server will receive a request for a subdomain\n(pages.charlesreid1.com), and from the rules in the \nconfiguration file (which we will cover) it sees it should\nforward the request to Python Helium.\n\n\nIf nginx is running as a host service, it will forward \nthe request to local port 7777 (or whatever local port \nthe Python Helium container is running on). If nginx is \nrunning in a container, ideally as a container in the same\npod as the Python Helium container, the nginx container \ncan set up a route to the Python Helium container \nusing the docker virtual network.\n\n\nIn this way, nginx reverse proxies requests for the subdomain\nto the Python Helium service.\n\n\nNginx + Python Helium: Separate Machines\n\n\nSo you wanna run nginx and Python Helium on separate machines.\n\n\nThe way we do this is nearly identical to the setup \ndescribed above, except we replace the internal \ndocker network and/or itra-machine port traffic\nwith a virtual private network.\n\n\nNow, we have nginx on one node, and Python Helium on another,\nand they can communciate over an encrypted VPN tunnel.\n\n\nWhen a subdomain request comes to the nginx server, \nit is now reverse proxied to the VPN IP address \nof the server running Python Helium.\n\n\nFor example, if nginx were running on \n10.0.0.1\n and \nPython Helium on \n10.0.0.2\n, the nginx rule would be \nto reverse-proxy all requests for pages.charlesreid1.com\nto \n10.0.0.2:7777\n.\n\n\nNginx + Python Helium: Setting Up the VPN\n\n\nThe \"easiest\" way to get a mesh VPN network going \nis to use tinc. It takes a while, and requires you\nread a tutorial step-by-step, but it is powerful\nand useful software.\n\n\nSee \nhttps://charlesereid1.com/wiki/Tinc",
+            "title": "Subdomains"
+        },
+        {
+            "location": "/Subdomains/#coordinating-subdomains",
+            "text": "",
+            "title": "Coordinating Subdomains"
+        },
+        {
+            "location": "/Subdomains/#the-subdomains",
+            "text": "We have several subdomains that consist of single static pages:   bots.charlesreid1.com    hooks.charlesreid1.com    pages.charlesreid1.com    api.charlesreid1.com  The individual bots also need page upgrades.  To accomplish this, we implement a one-page pelican theme, scurvy-knave-theme .\nThis page is a dead-simple single page template.",
+            "title": "The Subdomains"
+        },
+        {
+            "location": "/Subdomains/#subdomains-on-git",
+            "text": "These repos have a source branch ( master ) \nand a live html content branch ( gh-pages ).  The  gh-pages  branch is the only one relevant\nto  d-python-helium . This branch contains\nstatic content to be hosted by  d-python-helium .",
+            "title": "Subdomains on Git"
+        },
+        {
+            "location": "/Subdomains/#subdomains-in-nginx",
+            "text": "The end goal is to have a single Python service\nthat listens on multiple ports, serving a different\nstatic site on each port, with different static sites\ncorresponding to different subdomains.  \n                                                      +----------------------------------------+\n                                                      |         python helium                  |\n                         HTTPS     +----------+       |                                        |\n                                   |  nginx   |       | +------------------------------------+ |\npages.charlesreid1.com-----------> |          +-------> | port 7777   pages.charlesreid1.com | |\n                                   |          |       | |             static content         | |\n                                   |          |       | +------------------------------------+ |\nhooks.charlesreid1.com-----------> |          +-------> | port 7778   hooks.charlesreid1.com | |\n                                   |          |       | |             static content         | |\n                                   |          |       | +------------------------------------+ |\nbots.charlesreid1.com------------> |          +-------> | port 7779   bots.charlesreid1.com  | |\n                                   |          |       | |             static content         | |\n                                   +----------+       | +------------------------------------+ |\n                                                      |                                        |\n                                                      +----------------------------------------+  There are multiple subdomains (bots, hooks, pages),\neach with their own cloned copy of the live site, \nrun by their own  d-python-helium  container.  So how do we coordinate all of these sites?",
+            "title": "Subdomains in Nginx"
+        },
+        {
+            "location": "/Subdomains/#nginx-python-helium-everything-on-one-machine",
+            "text": "Let's start by explaining how to do it if everything is on \none machine.   We have an nginx web server running on the host machine \nas either a host service, or as a container, and it \nreads a configuration file that tells it how to route traffic.  The nginx server will receive a request for a subdomain\n(pages.charlesreid1.com), and from the rules in the \nconfiguration file (which we will cover) it sees it should\nforward the request to Python Helium.  If nginx is running as a host service, it will forward \nthe request to local port 7777 (or whatever local port \nthe Python Helium container is running on). If nginx is \nrunning in a container, ideally as a container in the same\npod as the Python Helium container, the nginx container \ncan set up a route to the Python Helium container \nusing the docker virtual network.  In this way, nginx reverse proxies requests for the subdomain\nto the Python Helium service.",
+            "title": "Nginx + Python Helium: Everything On One Machine"
+        },
+        {
+            "location": "/Subdomains/#nginx-python-helium-separate-machines",
+            "text": "So you wanna run nginx and Python Helium on separate machines.  The way we do this is nearly identical to the setup \ndescribed above, except we replace the internal \ndocker network and/or itra-machine port traffic\nwith a virtual private network.  Now, we have nginx on one node, and Python Helium on another,\nand they can communciate over an encrypted VPN tunnel.  When a subdomain request comes to the nginx server, \nit is now reverse proxied to the VPN IP address \nof the server running Python Helium.  For example, if nginx were running on  10.0.0.1  and \nPython Helium on  10.0.0.2 , the nginx rule would be \nto reverse-proxy all requests for pages.charlesreid1.com\nto  10.0.0.2:7777 .",
+            "title": "Nginx + Python Helium: Separate Machines"
+        },
+        {
+            "location": "/Subdomains/#nginx-python-helium-setting-up-the-vpn",
+            "text": "The \"easiest\" way to get a mesh VPN network going \nis to use tinc. It takes a while, and requires you\nread a tutorial step-by-step, but it is powerful\nand useful software.  See  https://charlesereid1.com/wiki/Tinc",
+            "title": "Nginx + Python Helium: Setting Up the VPN"
+        }
+    ]
+}
