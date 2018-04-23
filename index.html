@@ -199,13 +199,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#purpose" title="Purpose" class="md-nav__link">
-    Purpose
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#helium-application" title="Helium Application" class="md-nav__link">
     Helium Application
   </a>
@@ -227,8 +220,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#coordinating-subdomains" title="Coordinating Subdomains" class="md-nav__link">
-    Coordinating Subdomains
+  <a href="#note-on-future-development" title="Note on Future Development" class="md-nav__link">
+    Note on Future Development
   </a>
   
 </li>
@@ -280,18 +273,6 @@
   </li>
 
     
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="Subdomains/" title="Subdomains" class="md-nav__link">
-      Subdomains
-    </a>
-  </li>
-
-    
   </ul>
 </nav>
                   </div>
@@ -311,13 +292,6 @@
   
     <label class="md-nav__title" for="toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#purpose" title="Purpose" class="md-nav__link">
-    Purpose
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#helium-application" title="Helium Application" class="md-nav__link">
@@ -341,8 +315,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#coordinating-subdomains" title="Coordinating Subdomains" class="md-nav__link">
-    Coordinating Subdomains
+  <a href="#note-on-future-development" title="Note on Future Development" class="md-nav__link">
+    Note on Future Development
   </a>
   
 </li>
@@ -369,11 +343,6 @@
 but for serving static sites instead of files.</p>
 <p>Static files only.</p>
 <p>Port and bind address should both be configurable.</p>
-<h2 id="purpose">Purpose</h2>
-<p>The purpose of Python Helium is to host
-multiple one-page static sites for a 
-series of subdomains of charlesreid1.com.</p>
-<p>See <a href="Subdomains/">Subdomains.md</a></p>
 <h2 id="helium-application">Helium Application</h2>
 <p>The helium appcliation is a twisted network application 
 that serves different folders of static content on different
@@ -381,7 +350,8 @@ ports.</p>
 <p>See <a href="Helium/">Helium.md</a>.</p>
 <h2 id="dockerfile-and-base-image">Dockerfile and Base Image</h2>
 <p>The core idea behind python helium is to be as lightweight as possible,
-so this is based on the lightweight <code>jfloff/alpine-python</code> image.</p>
+so this uses <code>jfloff/alpine-python:recent</code> 
+(see <a href="https://github.com/jfloff/alpine-python">jflof/alpine-python</a>).</p>
 <p>See <a href="Docker/">Docker.md</a></p>
 <h2 id="static-content-layout">Static Content Layout</h2>
 <p>Python Helium expects static content to live in <code>/www</code> 
@@ -390,14 +360,11 @@ details how to bind-mount each subdomain's
 static content/one-pager into the container
 for the <code>helium.py</code> application.</p>
 <p>See <a href="Layout/">Layout.md</a></p>
-<h2 id="coordinating-subdomains">Coordinating Subdomains</h2>
-<p>The end goal is to have a single Python service
-that listens on multiple ports, serving a different
-static site on each port, with different static sites
-corresponding to different subdomains.</p>
-<p>To do this, Python Helium works in coordination with 
-the nginx web server. </p>
-<p>See <a href="Subdomains/">Subdomains.md</a></p>
+<h2 id="note-on-future-development">Note on Future Development</h2>
+<p>At this point, this repo was abandoned
+in favor of <a href="https://git.charlesreid1.com/docker/d-nginx-subdomains">d-nginx-subdomains</a>,
+but it is a useful tool that we'll keep around
+for a future application.</p>
                 
                   
                 
