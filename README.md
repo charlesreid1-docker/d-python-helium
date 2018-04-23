@@ -8,15 +8,6 @@ Static files only.
 Port and bind address should both be configurable.
 
 
-## Purpose
-
-The purpose of Python Helium is to host
-multiple one-page static sites for a 
-series of subdomains of charlesreid1.com.
-
-See [Subdomains.md](/Subdomains.md)
-
-
 ## Helium Application
 
 The helium appcliation is a twisted network application 
