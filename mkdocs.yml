@@ -1,4 +1,11 @@
 site_name: d-python-helium
+site_url: https://pages.charlesreid1.com/d-python-helium
+repo_name: d-python-helium
+repo_url: https://git.charlesreid1.com/docker/d-python-helium
+edit_uri: ""
+
+copyright: 'Copyright &copy; 2018 <a href="https://charlesreid1.com">Charles Reid</a>'
+
 docs_dir: docs
 site_dir: site
 extra_css:
@@ -14,10 +21,16 @@ theme:
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
-markdown_extensions:
-  - admonition
 pages:
   - 'Home':         'index.md'
   - 'Docker':       'Docker.md'
   - 'Helium':       'Helium.md'
   - 'Layout':       'Layout.md'
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
