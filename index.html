@@ -11,6 +11,8 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
+        <link rel="canonical" href="https://pages.charlesreid1.com/d-python-helium/">
+      
       
       
         <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -85,7 +87,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="." title="d-python-helium" class="md-header-nav__button md-logo">
+        <a href="https://pages.charlesreid1.com/d-python-helium" title="d-python-helium" class="md-header-nav__button md-logo">
           
             <i class="md-icon">input</i>
           
@@ -139,6 +141,24 @@
         
       </div>
       
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://git.charlesreid1.com/docker/d-python-helium" title="Go to repository" class="md-source" data-md-source="">
+    
+    <div class="md-source__repository">
+      d-python-helium
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
     </div>
   </nav>
 </header>
@@ -163,6 +183,22 @@
     </span>
     d-python-helium
   </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://git.charlesreid1.com/docker/d-python-helium" title="Go to repository" class="md-source" data-md-source="">
+    
+    <div class="md-source__repository">
+      d-python-helium
+    </div>
+  </a>
+
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -338,29 +374,29 @@
               
                 
                 
-                <h1 id="d-python-helium">d-python-helium</h1>
+                <h1 id="d-python-helium">d-python-helium<a class="headerlink" href="#d-python-helium" title="Permanent link">&para;</a></h1>
 <p>Like <a href="https://git.charlesreid1.com/docker/d-python-files">d-python-files</a>, 
 but for serving static sites instead of files.</p>
 <p>Static files only.</p>
 <p>Port and bind address should both be configurable.</p>
-<h2 id="helium-application">Helium Application</h2>
+<h2 id="helium-application">Helium Application<a class="headerlink" href="#helium-application" title="Permanent link">&para;</a></h2>
 <p>The helium appcliation is a twisted network application 
 that serves different folders of static content on different
 ports.</p>
 <p>See <a href="Helium/">Helium.md</a>.</p>
-<h2 id="dockerfile-and-base-image">Dockerfile and Base Image</h2>
+<h2 id="dockerfile-and-base-image">Dockerfile and Base Image<a class="headerlink" href="#dockerfile-and-base-image" title="Permanent link">&para;</a></h2>
 <p>The core idea behind python helium is to be as lightweight as possible,
 so this uses <code>jfloff/alpine-python:recent</code> 
 (see <a href="https://github.com/jfloff/alpine-python">jflof/alpine-python</a>).</p>
 <p>See <a href="Docker/">Docker.md</a></p>
-<h2 id="static-content-layout">Static Content Layout</h2>
+<h2 id="static-content-layout">Static Content Layout<a class="headerlink" href="#static-content-layout" title="Permanent link">&para;</a></h2>
 <p>Python Helium expects static content to live in <code>/www</code> 
 inside the container. The document below
 details how to bind-mount each subdomain's 
 static content/one-pager into the container
 for the <code>helium.py</code> application.</p>
 <p>See <a href="Layout/">Layout.md</a></p>
-<h2 id="note-on-future-development">Note on Future Development</h2>
+<h2 id="note-on-future-development">Note on Future Development<a class="headerlink" href="#note-on-future-development" title="Permanent link">&para;</a></h2>
 <p>At this point, this repo was abandoned
 in favor of <a href="https://git.charlesreid1.com/docker/d-nginx-subdomains">d-nginx-subdomains</a>,
 but it is a useful tool that we'll keep around
@@ -406,6 +442,10 @@ for a future application.</p>
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 <a href="https://charlesreid1.com">Charles Reid</a>, released under the <a href="https://opensource.org/licenses/MIT">MIT license</a>
+          </div>
         
         powered by
         <a href="http://www.mkdocs.org">MkDocs</a>

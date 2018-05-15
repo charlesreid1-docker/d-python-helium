@@ -11,6 +11,8 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
+        <link rel="canonical" href="https://pages.charlesreid1.com/d-python-helium/Docker/">
+      
       
       
         <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -85,7 +87,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href=".." title="d-python-helium" class="md-header-nav__button md-logo">
+        <a href="https://pages.charlesreid1.com/d-python-helium" title="d-python-helium" class="md-header-nav__button md-logo">
           
             <i class="md-icon">input</i>
           
@@ -139,6 +141,24 @@
         
       </div>
       
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://git.charlesreid1.com/docker/d-python-helium" title="Go to repository" class="md-source" data-md-source="">
+    
+    <div class="md-source__repository">
+      d-python-helium
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
     </div>
   </nav>
 </header>
@@ -163,6 +183,22 @@
     </span>
     d-python-helium
   </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://git.charlesreid1.com/docker/d-python-helium" title="Go to repository" class="md-source" data-md-source="">
+    
+    <div class="md-source__repository">
+      d-python-helium
+    </div>
+  </a>
+
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -324,21 +360,22 @@
               
                 
                 
-                <h1 id="dockerfile-and-base-image">Dockerfile and Base Image</h1>
+                <h1 id="dockerfile-and-base-image">Dockerfile and Base Image<a class="headerlink" href="#dockerfile-and-base-image" title="Permanent link">&para;</a></h1>
 <p>The core idea behind python helium is to be as lightweight as possible,
 so this is based on the lightweight <code>jfloff/alpine-python</code> image.</p>
-<h2 id="docker-and-docker-compose">Docker and Docker Compose</h2>
+<h2 id="docker-and-docker-compose">Docker and Docker Compose<a class="headerlink" href="#docker-and-docker-compose" title="Permanent link">&para;</a></h2>
 <p>The Dockerfile extends <code>jfloff/alpine-python:recent-slim</code> 
 and installs twisted into the container on first run.</p>
 <p>This can be used standalone by building using <code>docker build</code>.</p>
 <p>However, the preferred way to use this image is to use the 
 docker-compose file:</p>
-<pre><code>docker-compose build
+<div class="codehilite"><pre><span></span>docker-compose build
 docker-compose up -d
 docker-compose down
-</code></pre>
+</pre></div>
 
-<h2 id="network">Network</h2>
+
+<h2 id="network">Network<a class="headerlink" href="#network" title="Permanent link">&para;</a></h2>
 <p>This requires the container to listen for requests 
 on multiple ports. The container should be bound 
 to the correct address.</p>
@@ -351,10 +388,11 @@ interface.</p>
 the service should be bound to the VPN IP address of
 the machine. This will ensure that the server only
 responds to (encrypted) requests from machines on the VPN.</p>
-<h2 id="volumes-and-bind-mounting">Volumes and Bind Mounting</h2>
+<h2 id="volumes-and-bind-mounting">Volumes and Bind Mounting<a class="headerlink" href="#volumes-and-bind-mounting" title="Permanent link">&para;</a></h2>
 <p>The Dockerfile expects the application to be at:</p>
-<pre><code>/app/helium.py
-</code></pre>
+<div class="codehilite"><pre><span></span>/app/helium.py
+</pre></div>
+
 
 <p>so bind mount the <code>helium.py</code> application to <code>/app/helium.py</code>
 when you run this container.</p>
@@ -413,6 +451,10 @@ when you run this container.</p>
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 <a href="https://charlesreid1.com">Charles Reid</a>, released under the <a href="https://opensource.org/licenses/MIT">MIT license</a>
+          </div>
         
         powered by
         <a href="http://www.mkdocs.org">MkDocs</a>
