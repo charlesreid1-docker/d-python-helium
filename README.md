@@ -7,39 +7,11 @@ Static files only.
 
 Port and bind address should both be configurable.
 
+## Links
 
-## Helium Application
+[documentation: d-python-helium container](https://pages.charlesreid1.com/d-python-helium/) (you are here)
 
-The helium appcliation is a twisted network application 
-that serves different folders of static content on different
-ports.
+[source code on git.charlesreid1.com: d-python-helium](https://git.charlesreid1.com/docker/d-python-helium)
 
-See [Helium.md](/Helium.md).
+[source code on github.com: charlesreid1-docker/d-python-helium](https://github.com/charlesreid1-docker/d-python-helium)
 
-
-## Dockerfile and Base Image
-
-The core idea behind python helium is to be as lightweight as possible,
-so this uses `jfloff/alpine-python:recent` 
-(see [jflof/alpine-python](https://github.com/jfloff/alpine-python)).
-
-See [Docker.md](/Docker.md)
-
-
-## Static Content Layout
-
-Python Helium expects static content to live in `/www` 
-inside the container. The document below
-details how to bind-mount each subdomain's 
-static content/one-pager into the container
-for the `helium.py` application.
-
-See [Layout.md](/Layout.md)
-
-
-## Note on Future Development
-
-At this point, this repo was abandoned
-in favor of [d-nginx-subdomains](https://git.charlesreid1.com/docker/d-nginx-subdomains),
-but it is a useful tool that we'll keep around
-for a future application.
